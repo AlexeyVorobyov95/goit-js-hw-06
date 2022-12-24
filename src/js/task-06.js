@@ -1,11 +1,16 @@
-const inputEl = document.querySelector(`#validation-input`);
-console.dir(inputEl);
-inputEl.addEventListener("blur", () => {
-    if (inputEl.value.length === 6) {
-        inputEl.classList.add(`valid`);
-        
-    } else {
-        
-        inputEl.classList.add(`invalid`);
-    }
-});
+const validationInputElement = document.querySelector("#validation-input");
+
+const checkNumbers = () => {
+  if (
+    validationInputElement.value.length ===
+    Number(validationInputElement.dataset.length)
+  ) {
+    validationInputElement.classList.remove(`invalid`);
+    validationInputElement.classList.add(`valid`);
+  } else {
+    validationInputElement.classList.remove(`valid`);
+    validationInputElement.classList.add(`invalid`);
+  }
+};
+
+validationInputElement.addEventListener("click", checkNumbers);
