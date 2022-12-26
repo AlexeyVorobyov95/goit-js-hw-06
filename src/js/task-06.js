@@ -1,10 +1,7 @@
 const validationInputElement = document.querySelector("#validation-input");
 
-const checkNumbers = () => {
-  if (
-    validationInputElement.value.length ===
-    Number(validationInputElement.dataset.length)
-  ) {
+const checkNumbers = () => { 
+  if (validationInputElement.value.length === Number(validationInputElement.dataset.length)) {
     validationInputElement.classList.remove(`invalid`);
     validationInputElement.classList.add(`valid`);
   } else {
@@ -13,4 +10,5 @@ const checkNumbers = () => {
   }
 };
 
-validationInputElement.addEventListener("click", checkNumbers);
+validationInputElement.addEventListener("blur", checkNumbers);
+// console.dir(validationInputElement);
